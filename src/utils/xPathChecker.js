@@ -27,7 +27,6 @@ async function xPathChecker(page, xpathsToCheck, website) {
       }
     } else {
       const element = await page.$x(expectedXPaths);
-      await page.waitForTimeout(1000);
       if (element.length === 0) {
         console.log(`XPath ${expectedXPaths} for ${website} has changed.`);
         //console.log(await mailSender(expectedXPaths, website))
