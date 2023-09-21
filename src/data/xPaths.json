@@ -1,0 +1,206 @@
+{
+  "twitter": [
+    {
+      "url": "https://twitter.com/home",
+      "xPaths": [
+        "//*[@href='/explore']",
+        "//aside[@aria-label='Subscribe to Premium']/..",
+        "//div[@aria-label='Timeline: Trending now']/../../..",
+        "//aside[@aria-label='Who to follow']/../..",
+        "//div[@data-testid='ScrollSnap-SwipeableList']",
+        "//div[@data-testid='tweetText'][not(ancestor::*[@data-testid='DMDrawer'])]/..",
+        "//div[@data-testid='tweetText'][not(ancestor::*[@data-testid='DMDrawer'])]",
+        ".//*[@data-testid='tweetText']/..",
+        "//main[contains(@role,'main')]",
+        "//div[@data-testid='DMDrawer']",
+        ".//div[contains(@class, 'DraftEditor-editorContainer')]",
+        ".//div[@role='textbox']",
+        ".//div[1]",
+        ".//../../../../../../../../../../../../../../../../../../../../..",
+        ".//../../../../../../../../../../../../../../../../../../../div[1]",
+        ".//../..",
+        ".//ancestor-or-self::div[@data-testid='cellInnerDiv']",
+        "//div[@aria-label='Timeline: Your Home Timeline']/../.."
+      ]
+    },
+    {
+      "tab": "Messages",
+      "xPaths": [
+        "//section[contains(@aria-label,'details')]",
+        "//aside[contains(@aria-label,'Start')]",
+        ".//div[@data-testid='DmScrollerContainer']"
+      ]
+    }
+  ],
+  "youtube": [
+    {
+      "url": "https://www.youtube.com/",
+      "xPaths": [
+        "//*[text()='Shorts']/../../..",
+        "//*[text()='Subscriptions']/../..",
+        "//ytd-guide-collapsible-section-entry-renderer",
+        "//*[text()='Subscriptions']/../../../../div/ytd-guide-section-renderer[position()=2]",
+        "//*[text()='Explore']/../..",
+        "//*[text()='More from YouTube']/../..",
+        "//ytd-notification-topbar-button-renderer",
+        "//ytd-watch-next-secondary-results-renderer/..",
+        "//*[@page-subtype='home' and @role='main']",
+        "/"
+      ]
+    },
+    {
+      "tab": "Comments",
+      "xPaths": [
+        "//*[@id='comments']",
+        "//*[@id='content-text']/../..",
+        "//*[@id='content-text']|//*[contains(@id, 'thumbnail-input-row')]/*[contains(@id, 'main')]",
+        ".//ancestor-or-self::ytd-comment-thread-renderer/ytd-comment-renderer/.."
+      ]
+    },
+    {
+      "tab": "Comment",
+      "xPaths": [
+        ".//div[contains(@id, 'contenteditable-root')]",
+        ".//ancestor-or-self::*[contains(@id, 'reply-dialog')]",
+        ".//div[contains(@id, 'footer')]/div[contains(@id, 'buttons')]"
+      ]
+    },
+    {
+      "tab": "Reply",
+      "xPaths": [".//ancestor-or-self::ytd-comment-renderer[parent::div]"]
+    }
+  ],
+  "tiktok": [
+    {
+      "url": "https://www.tiktok.com",
+      "xPaths": [
+        "//a[@data-e2e='nav-following']/../..",
+        "//a[@data-e2e='nav-explore']/../..",
+        "//a[@data-e2e='nav-foryou']/../..",
+        "//h2[@data-e2e='following-accounts']/..",
+        "//div[contains(@id, 'main-content-homepage_hot')]"
+      ]
+    },
+    {
+      "tab": "Comments",
+      "xPaths": [
+        "//p[starts-with(@data-e2e, 'comment-level')]/..",
+        "//p[starts-with(@data-e2e, 'comment-level')]",
+        "//*[contains(@class, 'CommentContentContainer')]",
+        ".//*[contains(@data-e2e, 'comment-reply')]",
+        ".//*[contains(@class, 'DraftEditor-content')]",
+        "//*[@data-e2e='comment-input']",
+        ".//*[@data-e2e='comment-input']/div[2]",
+        "//*[contains(@class, 'DivCommentBarContainer')]|//*[contains(@class, 'DivBottomCommentContainer')]",
+        "//*[@data-e2e='comment-input']|//*[contains(@class, 'CommentContentContainer')]",
+        "//*[contains(@class, 'DivBrowserModeContainer')]",
+        ".//*[@role='textbox']",
+        ".//ancestor-or-self::div[contains(@class, 'DivCommentContentContainer')][parent::div[contains(@class, 'DivReplyContainer')]]",
+        ".//ancestor-or-self::div[contains(@class, 'DivCommentContentContainer')][parent::div[contains(@class, 'DivCommentItemContainer')]]/..",
+        ".//ancestor-or-self::div[contains(@class, 'DivCommentContentContainer')][parent::div[contains(@class, 'DivReplyContainer')]]",
+        ".//ancestor-or-self::div[contains(@class, 'DivCommentContentContainer')][parent::div[contains(@class, 'DivCommentItemContainer')]]/.."
+      ]
+    }
+  ],
+  "facebook": [
+    {
+      "tab": "reels",
+      "xPaths": ["//*[text()='Create reel']/../../../../../div[position()>1]"]
+    },
+    {
+      "url": "https://www.facebook.com/",
+      "xPaths": [
+        "//*[text()='Create story']/../../../../../../../../../../div[position()>1]",
+        "//*[text()='Sponsored']/../../../../../../../../../../../../../../..",
+        "//*[text()='Find friends']/../../../../../../../../../../../../../../../..",
+        "//a[@aria-label='Gaming']/../../..",
+        "//a[@aria-label='Video']/../../..",
+        "//a[@aria-label='Marketplace']",
+        "//div[@role='article']/div[2]/div[1]/div[1]/div/div[1]/div[last()]/span/..|//div[@role='article']/div[2]/div[1]/div[1]/div/div[1]/div/div/div[last()]/span/..",
+        "//div[@role='article']/div[2]/div[1]/div[1]/div/div[1]/div[last()]|//div[@role='article']/div[2]/div[1]/div[1]/div/div[1]/div/div/div[last()]",
+        ".//div[last()]/span/div/..",
+        ".//span",
+        ".//ancestor-or-self::li[1]",
+        "//div[@role='feed']/.. | //span[contains(@id,'ssrb_feed_start')]/.."
+      ]
+    }
+  ],
+  "linkedIn": [
+    {
+      "url": "https://www.linkedin.com/feed/",
+      "xPaths": [
+        "//aside[@aria-label='Add to your feed']",
+        "//div[contains(@class,'scaffold-layout__sidebar')]/div/div[2]",
+        "//span[@title='My Network']/../..",
+        "//*[text()='Sort by:']/../../..",
+        ".//ancestor-or-self::article[1]",
+        "//h1[text()='feed updates']/.. | //*[text()='Recommended for you']/../../../../../../..",
+        "//*[contains(@class, 'global-nav__me-photo')]",
+        "//div[contains(@class, 'update-components-text')][not(contains(@class, 'update-components-text-view'))][not(ancestor-or-self::article[contains(@class, 'comments-comments-list__comment-item')])]",
+        ".//div[contains(@class, 'update-components-text')][not(contains(@class, 'update-components-text-view'))]"
+      ]
+    },
+    {
+      "tab": "Jobs",
+      "xPaths": [
+        "//*[text()='Suggested job searches']/../..",
+        "//*[text()='Job seeker guidance']/../../../..",
+        "//h2[text()='Recent job searches']/../..",
+        "//span[text()='Show more results']/../../.."
+      ]
+    },
+    {
+      "tab": "Comments",
+      "xPaths": [
+        "//span[contains(@class, 'comments-comment-item__main-content')]/../..",
+        "//span[contains(@class, 'comments-comment-item__main-content')]",
+        "//article[contains(@class, 'comments-comments-list__comment-item')]",
+        ".//*[contains(@class, 'comments-comment-box-comment__text')]/../*[2]",
+        "//*[contains(@class, 'comments-comment-box--has-avatar')][not(ancestor-or-self::article[contains(@class, 'comments-comments-list__comment-item')])]",
+        ".//*[contains(@class, 'comments-comment-box--has-avatar')]",
+        ".//button[contains(@class, ' button reply')]"
+      ]
+    },
+    {
+      "tab": "Message",
+      "xPaths": [
+        "//div[contains(@class, 'msg-convo-wrapper')]",
+        ".//*[contains(@role, 'textbox')]",
+        ".//*[contains(@class, 'msg-s-message-list-content')]",
+        ".//*[contains(@class, 'msg-s-message-list__event')]/div[1]/div[last()][not(@class='msg-s-message-group__meta')]|.//*[contains(@class, 'msg-s-message-list__event')]/div[1]/div[1]/a",
+        ".//form",
+        ".//*[contains(@class, 'msg-form__msg-content-container')]"
+      ]
+    },
+    {
+      "tab": "Reply",
+      "xPaths": [
+        ".//button[contains(@class, 'comments-comment-box__submit-button')]"
+      ]
+    }
+  ],
+  "instagram": [
+    {
+      "url": "https://www.instagram.com/",
+      "xPaths": [
+        "//a[@href='/explore/']/../../..",
+        "//a[@href='/reels/']/../../..",
+        ".//div[1]/span",
+        "//main[@role='main']/.."
+      ]
+    },
+
+    {
+      "tab": "Comments",
+      "xPaths": [
+        ".//ancestor-or-self::div[(@role='button')][parent::ul[parent::ul]]/..",
+        "//li/div/div/div[2]/div[1]",
+        "//li/div/div/div[2]/div[1]/../../../.."
+      ]
+    },
+    {
+      "tab": "Message",
+      "xPaths": [".//h1", ".//div[1]/span"]
+    }
+  ]
+}
