@@ -31,7 +31,7 @@ async function checkXPathsYoutube(browser) {
   await page.click("#identifierNext");
 
   await page.waitForNavigation();
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(4000);
   await page.type("input[type='password']", password, { delay: 50 });
 
   await page.click("#passwordNext");
