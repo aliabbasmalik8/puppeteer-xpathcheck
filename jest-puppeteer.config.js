@@ -1,8 +1,6 @@
 module.exports = {
   launch: { 
-    headless: false, 
+    headless: true, 
     slowMo: 30, 
-    headless: process.env.CI === "true",
-    executablePath: "chrome.exe"
   } 
 }
