@@ -1,6 +1,7 @@
 const AdblockerPlugin = require("puppeteer-extra-plugin-adblocker");
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 const puppeteer = require("puppeteer-extra");
+const { executablePath } = require('puppeteer');
 
 const createBrowser = async () => {
   puppeteer.use(AdblockerPlugin({ blockTrackers: true }));
@@ -23,6 +24,7 @@ const createBrowser = async () => {
     defaultViewport: null,
     ignoreDefaultArgs: ["--disable-extensions"],
     args: ["--start-maximized", "--no-sandbox", "--disable-setuid-sandbox"],
+    executablePath: executablePath(),
   });
 
   return browser;
