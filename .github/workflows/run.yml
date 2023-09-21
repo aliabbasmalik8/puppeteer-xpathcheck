@@ -33,5 +33,9 @@ jobs:
       - name: Install Node.js Dependencies
         run: yarn install
 
-      - name: Start Node.js Application
-        run: yarn start
+      - name: Run test
+        uses: tj-actions/puppeteer@v4
+        id: puppeteer
+        with:
+          files: |
+            app.js
