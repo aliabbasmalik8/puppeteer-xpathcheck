@@ -82,6 +82,7 @@ async function checkXPathsYoutube(browser) {
       });
       await page.waitForTimeout(4000);
       await page.waitForSelector("#reply-button-end");
+      await page.waitForSelector("#reply-button-end");
 
       await page.click("#reply-button-end");
       await page.waitForTimeout(4000);
@@ -98,6 +99,7 @@ async function checkXPathsYoutube(browser) {
         window.scrollTo(0, 800);
       });
       await page.waitForTimeout(4000);
+      await page.waitForSelector("#reply-button-end");
       await page.click("#reply-button-end");
       await page.waitForTimeout(1000);
       await page.click("#more-replies", { multiple: true });
