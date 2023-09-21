@@ -1,19 +1,19 @@
-const expect_puppeteer = require('expect-puppeteer');
-const checkXPathsYoutube = require('./src/controllers/youtubeXpath.controller');
-const createBrowser = require('./src/utils/createBrowser');
+const expect_puppeteer = require("expect-puppeteer");
+const checkXPathsYoutube = require("./src/controllers/youtubeXpath.controller");
+const createBrowser = require("./src/utils/createBrowser");
 
 describe("Google", () => {
-    let browser;
+  let browser;
   beforeAll(async () => {
-    browser = await createBrowser()
+    browser = await createBrowser();
     //await page.goto("https://google.com")
   });
 
   afterAll(async () => {
-    await browser?.close()
-  })
+    await browser?.close();
+  });
 
   it('should display "google" text on page', async () => {
-    expect(await checkXPathsYoutube(browser)).toBe("Hello")
+    expect(await checkXPathsYoutube(browser)).toBe("Hello");
   }, 200000);
 });

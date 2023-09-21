@@ -4,6 +4,7 @@ const xPathChecker = require("../utils/xPathChecker");
 const xPaths = require("../data/xPaths.json");
 
 async function checkXPathsLinkedIn(browser) {
+  console.log("====>> hello world");
   const context = browser.defaultBrowserContext();
   context.overridePermissions("https://www.linkedin.com/", [
     "geolocation",
@@ -21,12 +22,16 @@ async function checkXPathsLinkedIn(browser) {
     waitUntil: "networkidle0",
   });
 
+  console.log("====>> hello world111");
+
   await page.waitForTimeout(1000);
 
   // Fill in and submit the login form
   await page.type("input[name='session_key']", username, { delay: 100 });
   await page.type("input[name='session_password']", password, { delay: 100 });
   await page.click("button[data-id='sign-in-form__submit-btn']");
+  console.log("====>> hello world122");
+
   await page.waitForSelector("div[class='scaffold-layout__sidebar']");
 
   for (const expectedXPaths of pageXPaths) {
