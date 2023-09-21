@@ -21,22 +21,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout repository content
-        uses: actions/checkout@v2 # Checkout the repository content to github runner.
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - name: Use Node.js 18.16.0
+        uses: actions/setup-node@v1
         with:
-          node-version: 18.14.1
-
-      - name: Install Node.js Dependencies
-        run: yarn install
-
-      - uses: abhi1693/setup-browser@v0.3.4
-        with:
-          browser: chrome
-          version: latest
-
-      - name: Run test
-        run: yarn test
+          node-version: 18.16.0
+      - name: npm install, build, and test
+        run: |
+          npm run build --if-present
+          npm run test
+        env:
+          CI: true
