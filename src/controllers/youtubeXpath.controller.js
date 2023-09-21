@@ -101,7 +101,8 @@ async function checkXPathsYoutube(browser) {
       await page.waitForTimeout(4000);
       await page.waitForSelector("#reply-button-end");
       await page.click("#reply-button-end");
-      await page.waitForTimeout(1000);
+      await page.waitForTimeout(4000);
+      await page.waitForSelector("#more-replies");
       await page.click("#more-replies", { multiple: true });
       await page.waitForTimeout(1000);
       const response = await xPathChecker(
