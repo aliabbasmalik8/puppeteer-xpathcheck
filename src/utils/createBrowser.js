@@ -22,8 +22,8 @@ const createBrowser = async () => {
   const browser = await puppeteer.launch({
     headless: "new",
     defaultViewport: {
-      width: 1600,
-      height: 1000,
+      width: 1920,
+      height: 1080,
     },
     ignoreDefaultArgs: ["--disable-extensions"],
     args: ["--start-maximized", "--no-sandbox", "--disable-setuid-sandbox"],

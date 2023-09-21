@@ -78,9 +78,11 @@ async function checkXPathsYoutube(browser) {
       await page.click("#video-title-link");
       await page.waitForTimeout(4000);
       await page.evaluate(() => {
-        window.scrollTo(0, 700);
+        window.scrollTo(0, 800);
       });
       await page.waitForTimeout(4000);
+      await page.waitForSelector("#reply-button-end");
+
       await page.click("#reply-button-end");
       await page.waitForTimeout(4000);
       const response = await xPathChecker(
@@ -93,7 +95,7 @@ async function checkXPathsYoutube(browser) {
       await page.click("#video-title-link");
       await page.waitForTimeout(4000);
       await page.evaluate(() => {
-        window.scrollTo(0, 700);
+        window.scrollTo(0, 800);
       });
       await page.waitForTimeout(4000);
       await page.click("#reply-button-end");
