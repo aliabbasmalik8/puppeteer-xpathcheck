@@ -5,35 +5,32 @@ async function xPathChecker(page, xpathsToCheck, website) {
       //Linkedin
       const el = await page.$x(expectedXPaths);
       if (el.length !== 0 && flag) {
-        console.log(`XPath for ${expectedXPaths} ${website} has changed.`);
+        return `XPath for ${expectedXPaths} ${website} has changed.`;
         //console.log(await mailSender(expectedXPaths, website))
       } else {
         flag = false;
-        console.log(
-          `XPath ${expectedXPaths} for ${website} is still the same.`
-        );
+        return `XPath ${expectedXPaths} for ${website} is still the same.`
+      
       }
     } else if (expectedXPaths === "//h2[text()='Recent job searches']/../..") {
       //Linkedin
       const el = await page.$x(expectedXPaths);
       if (el.length !== 0 && flag) {
-        console.log(`XPath ${expectedXPaths} for ${website} has changed.`);
+        return `XPath ${expectedXPaths} for ${website} has changed.`
         //console.log(await mailSender(expectedXPaths, website))
       } else {
         flag = false;
-        console.log(
-          `XPath ${expectedXPaths} for ${website} is still the same.`
-        );
+       return   `XPath ${expectedXPaths} for ${website} is still the same.`
+        
       }
     } else {
       const element = await page.$x(expectedXPaths);
       if (element.length === 0) {
-        console.log(`XPath ${expectedXPaths} for ${website} has changed.`);
+      return `XPath ${expectedXPaths} for ${website} has changed.`
         //console.log(await mailSender(expectedXPaths, website))
       } else {
-        console.log(
-          `XPath ${expectedXPaths} for ${website} is still the same.`
-        );
+     
+        return `XPath ${expectedXPaths} for ${website} is still the same.`
       }
     }
   }

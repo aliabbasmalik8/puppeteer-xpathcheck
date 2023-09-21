@@ -4,6 +4,7 @@ const xPathChecker = require("../utils/xPathChecker");
 const xPaths = require("../data/xPaths.json");
 
 async function checkXPathsYoutube(browser) {
+  let results = [];
   const context = browser.defaultBrowserContext();
   context.overridePermissions("https://www.youtube.com/", [
     "geolocation",
@@ -39,6 +40,7 @@ async function checkXPathsYoutube(browser) {
 
   for (const expectedXPaths of pageXPaths) {
     await page.goto("https://www.youtube.com/");
+    await page.waitForTimeout(4000);
     if (expectedXPaths.tab === "Comments") {
       await page.click("#video-title-link");
       await page.waitForTimeout(4000);
@@ -47,11 +49,13 @@ async function checkXPathsYoutube(browser) {
       });
       await page.waitForTimeout(2000);
       //await page.click('svg[class="x1lliihq x1k90msu x2h7rmj x1qfuztq x1qq9wsj x1qx5ct2 xw4jnvo"]')
-      await xPathChecker(
+     const response =  await xPathChecker(
         page,
         expectedXPaths.xPaths,
         "https://www.youtube.com/"
       );
+
+      results.push(response)
       //await page.click('svg[class="x1lliihq x1k90msu x2h7rmj x1qfuztq xcza8v6 x1qx5ct2 xw4jnvo"]')
     } else if (expectedXPaths.tab === "Comment") {
       await page.click("#video-title-link");
@@ -62,12 +66,14 @@ async function checkXPathsYoutube(browser) {
       await page.waitForTimeout(2000);
       await page.click("#reply-button-end");
       await page.waitForTimeout(4000);
-      await xPathChecker(
+      const response =  await xPathChecker(
         page,
         expectedXPaths.xPaths,
         "https://www.youtube.com/"
       );
+       results.push(response)
     } else if (expectedXPaths.tab === "Reply") {
+
       await page.click("#video-title-link");
       await page.waitForTimeout(4000);
       await page.evaluate(() => {
@@ -78,20 +84,23 @@ async function checkXPathsYoutube(browser) {
       await page.waitForTimeout(1000);
       await page.click("#more-replies", { multiple: true });
       await page.waitForTimeout(1000);
-      await xPathChecker(
+       const response = await xPathChecker(
         page,
         expectedXPaths.xPaths,
         "https://www.youtube.com/"
       );
+       results.push(response)
     } else {
       page.waitForTimeout(2000);
-      await xPathChecker(
+       const response = await xPathChecker(
         page,
         expectedXPaths.xPaths,
         "https://www.youtube.com/"
       );
+       results.push(response)
     }
   }
+  return "Hello";
 }
 
 module.exports = checkXPathsYoutube;
