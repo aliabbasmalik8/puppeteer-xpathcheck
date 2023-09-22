@@ -1,39 +1,47 @@
 async function xPathChecker(page, xpathsToCheck, website) {
   var flag = true;
+  let result = [];
   for (const expectedXPaths of xpathsToCheck) {
     if (expectedXPaths === "//*[text()='Suggested job searches']/../..") {
       //Linkedin
       const el = await page.$x(expectedXPaths);
       if (el.length !== 0 && flag) {
-        return `XPath for ${expectedXPaths} ${website} has changed.`;
-        //console.log(await mailSender(expectedXPaths, website))
+        result.push(`XPath for ${expectedXPaths} ${website} has changed.`);
       } else {
         flag = false;
-        return `XPath ${expectedXPaths} for ${website} is still the same.`
-      
+        result.push(
+          `XPath ${expectedXPaths} for ${website} is still the same.`
+        );
       }
     } else if (expectedXPaths === "//h2[text()='Recent job searches']/../..") {
       //Linkedin
       const el = await page.$x(expectedXPaths);
       if (el.length !== 0 && flag) {
-        return `XPath ${expectedXPaths} for ${website} has changed.`
-        //console.log(await mailSender(expectedXPaths, website))
+        result.push(`XPath for ${expectedXPaths} ${website} has changed.`);
       } else {
         flag = false;
-       return   `XPath ${expectedXPaths} for ${website} is still the same.`
-        
+        result.push(
+          `XPath ${expectedXPaths} for ${website} is still the same.`
+        );
       }
     } else {
+      await page.waitForTimeout(5000);
       const element = await page.$x(expectedXPaths);
+
       if (element.length === 0) {
-      return `XPath ${expectedXPaths} for ${website} has changed.`
-        //console.log(await mailSender(expectedXPaths, website))
+        console.log(`XPath ${expectedXPaths} for ${website} has changed.`);
+
+        result.push(`XPath for ${expectedXPaths} ${website} has changed.`);
       } else {
-     
-        return `XPath ${expectedXPaths} for ${website} is still the same.`
+        console.log(`XPath ${expectedXPaths} for ${website} is still the same`);
+        result.push(
+          `XPath ${expectedXPaths} for ${website} is still the same.`
+        );
       }
     }
   }
+
+  return result;
 }
 
 module.exports = xPathChecker;

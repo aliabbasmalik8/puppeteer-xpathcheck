@@ -12,6 +12,9 @@ async function checkXPathsYoutube(browser) {
   ]);
   console.log("====>> hello world");
   const page = await browser.newPage();
+
+  await page.authenticate({ username: "cmbplwjb", password: "ega3yo93e10a" });
+
   const pageXPaths = xPaths["youtube"];
   // Replace with your login credentials
   const username = "androediot@gmail.com";
@@ -56,6 +59,7 @@ async function checkXPathsYoutube(browser) {
   console.log("====>> hello world12");
 
   for (const expectedXPaths of pageXPaths) {
+    console.log(expectedXPaths);
     await page.goto("https://www.youtube.com/");
     await page.waitForTimeout(4000);
     if (expectedXPaths.tab === "Comments") {
@@ -72,7 +76,7 @@ async function checkXPathsYoutube(browser) {
         "https://www.youtube.com/"
       );
 
-      results.push(response);
+      results = [...results, ...response];
       //await page.click('svg[class="x1lliihq x1k90msu x2h7rmj x1qfuztq xcza8v6 x1qx5ct2 xw4jnvo"]')
     } else if (expectedXPaths.tab === "Comment") {
       await page.click("#video-title-link");
@@ -81,9 +85,7 @@ async function checkXPathsYoutube(browser) {
         window.scrollTo(0, 800);
       });
       await page.waitForTimeout(4000);
-      await page.waitForSelector("#reply-button-end");
-      await page.waitForSelector("#reply-button-end");
-
+      //await page.waitForSelector("#reply-button-end");
       await page.click("#reply-button-end");
       await page.waitForTimeout(4000);
       const response = await xPathChecker(
@@ -91,7 +93,7 @@ async function checkXPathsYoutube(browser) {
         expectedXPaths.xPaths,
         "https://www.youtube.com/"
       );
-      results.push(response);
+      results = [...results, ...response];
     } else if (expectedXPaths.tab === "Reply") {
       await page.click("#video-title-link");
       await page.waitForTimeout(4000);
@@ -104,13 +106,13 @@ async function checkXPathsYoutube(browser) {
       await page.waitForTimeout(4000);
       await page.waitForSelector("#more-replies");
       await page.click("#more-replies", { multiple: true });
-      await page.waitForTimeout(1000);
+      await page.waitForTimeout(2000);
       const response = await xPathChecker(
         page,
         expectedXPaths.xPaths,
         "https://www.youtube.com/"
       );
-      results.push(response);
+      results = [...results, ...response];
     } else {
       page.waitForTimeout(2000);
       const response = await xPathChecker(
@@ -118,10 +120,10 @@ async function checkXPathsYoutube(browser) {
         expectedXPaths.xPaths,
         "https://www.youtube.com/"
       );
-      results.push(response);
+      results = [...results, ...response];
     }
   }
-  return "Hello";
+  return results;
 }
 
 module.exports = checkXPathsYoutube;

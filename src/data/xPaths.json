@@ -115,7 +115,6 @@
         "//*[text()='Find friends']/../../../../../../../../../../../../../../../..",
         "//a[@aria-label='Gaming']/../../..",
         "//a[@aria-label='Video']/../../..",
-        "//a[@aria-label='Marketplace']",
         "//div[@role='article']/div[2]/div[1]/div[1]/div/div[1]/div[last()]/span/..|//div[@role='article']/div[2]/div[1]/div[1]/div/div[1]/div/div/div[last()]/span/..",
         "//div[@role='article']/div[2]/div[1]/div[1]/div/div[1]/div[last()]|//div[@role='article']/div[2]/div[1]/div[1]/div/div[1]/div/div/div[last()]",
         ".//div[last()]/span/div/..",
@@ -123,6 +122,10 @@
         ".//ancestor-or-self::li[1]",
         "//div[@role='feed']/.. | //span[contains(@id,'ssrb_feed_start')]/.."
       ]
+    },
+    {
+      "tab": "Marketplace",
+      "xPaths": ["//div[@aria-label='Collection of Marketplace items']"]
     }
   ],
   "linkedIn": [

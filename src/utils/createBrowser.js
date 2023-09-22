@@ -19,6 +19,16 @@ const createBrowser = async () => {
     })
   );
 
+  const proxies = [
+    "http://185.199.229.156:7492",
+    "http://185.199.228.220:7300",
+    "http://185.199.231.45:8382",
+    "http://188.74.210.207:6286",
+    "http://188.74.183.10:8279",
+    "http://188.74.210.21:6100",
+  ];
+
+  const randomProxy = proxies[Math.floor(Math.random() * proxies.length)];
   const browser = await puppeteer.launch({
     headless: "new",
     defaultViewport: {
@@ -26,7 +36,12 @@ const createBrowser = async () => {
       height: 1080,
     },
     ignoreDefaultArgs: ["--disable-extensions"],
-    args: ["--start-maximized", "--no-sandbox", "--disable-setuid-sandbox"],
+    args: [
+      "--start-maximized",
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      `--proxy-server=${randomProxy}`,
+    ],
     executablePath: executablePath(),
   });
 
