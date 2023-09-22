@@ -27,20 +27,6 @@ const createBrowser = async () => {
     "http://188.74.183.10:8279",
     "http://188.74.210.21:6100",
   ];
-  // async function launchBrowserWithProxy() {
-  //   // extract a random proxy from the list of proxies
-
-  //   console.log("random pro==>", randomProxy);
-  //   // const newProxyUrl = await proxyChain.anonymizeProxy(oldProxyUrl);
-
-  //   const browser = await puppeteer.launch({
-  //     headless: false,
-  //     ignoreHTTPSErrors: true,
-  //     args: [`--proxy-server=${randomProxy}`],
-  //   });
-
-  //   return browser;
-  // }
 
   const randomProxy = proxies[Math.floor(Math.random() * proxies.length)];
   const browser = await puppeteer.launch({
