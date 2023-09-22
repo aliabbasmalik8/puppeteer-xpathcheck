@@ -2,25 +2,20 @@ version: 2.1
 jobs:
   puppeter-run:
     docker:
-      - image: circleci/node:18.16.0
+      - image: node:18.16.0 # Use a standard Node.js image from Docker Hub
 
     working_directory: ~/repo
 
     steps:
       - checkout
 
-      # Authenticate with Docker Hub using the context
-      - setup_remote_docker:
-          docker_layer_caching: true
-          context: my-docker-hub-context # Replace with the name of your Docker Hub context
+      - run:
+          name: Install Node.js packages
+          command: npm install
 
       - run:
-          name: Install Node.js 18.16.0
-          command: |
-            curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-            sudo apt-get install -y nodejs
-
-      # Rest of the steps as before...
+          name: Run tests
+          command: npm run test
 
 workflows:
   version: 2
