@@ -6,6 +6,7 @@ const xPaths = require("../data/xPaths.json");
 async function checkXPathsTikTok(browser) {
   // const browser = await createBrowser();
 
+  let results = [];
   const context = browser.defaultBrowserContext();
 
   context.overridePermissions("https://www.tiktok.com", [
@@ -14,6 +15,8 @@ async function checkXPathsTikTok(browser) {
   ]);
 
   const page = await browser.newPage();
+
+  await page.authenticate({ username: "cmbplwjb", password: "ega3yo93e10a" });
 
   // Replace with your login credentials
   const username = "ali@truenation.ai";
@@ -25,6 +28,10 @@ async function checkXPathsTikTok(browser) {
     waitUntil: "networkidle0",
   });
 
+  await page.waitForTimeout(6000);
+
+  console.debug("HERE ====> 1");
+
   // await page.setUserAgent(userAgent.random().toString());
 
   // Fill in and submit the login form
@@ -34,7 +41,10 @@ async function checkXPathsTikTok(browser) {
 
   await page.click("button[type='submit']");
 
-  await page.waitForNavigation();
+  console.debug("HERE ====> 2");
+
+  await page.waitForTimeout(8000);
+  await page.screenshot({ path: "tiktok.png" });
 
   for (const expectedXPaths of pageXPaths) {
     if (expectedXPaths.tab === "Comments") {
@@ -43,20 +53,26 @@ async function checkXPathsTikTok(browser) {
       if (comments) await comments.click();
 
       await page.waitForTimeout(3000);
-      await xPathChecker(
+      const response = await xPathChecker(
         page,
         expectedXPaths.xPaths,
         "https://www.tiktok.com/"
       );
+      console.debug("HERE ====> 3", response);
+
+      results = [...results, ...response];
     } else {
-      await xPathChecker(
+      const response = await xPathChecker(
         page,
         expectedXPaths.xPaths,
         "https://www.tiktok.com/"
       );
+      console.debug("HERE ====> 3", response);
+
+      results = [...results, ...response];
     }
   }
-
+  return results;
   // await browser.close();
 }
 

@@ -5,6 +5,7 @@ const xPaths = require("../data/xPaths.json");
 
 async function checkXPathsInstagram(browser) {
   // const browser = await createBrowser();
+  let results = [];
   const page = await browser.newPage();
 
   const username = "monic16032@nickolis.com";
@@ -42,11 +43,12 @@ async function checkXPathsInstagram(browser) {
         await comments.click();
       }
       await page.waitForTimeout(3000);
-      await xPathChecker(
+      const response = await xPathChecker(
         page,
         expectedXPaths.xPaths,
         "https://www.instagram.com"
       );
+      results = [...results, ...response];
     } else if (expectedXPaths.tab === "Message") {
       const [messages] = await page.$x("//span[contains(., 'Messages')]");
 
@@ -54,20 +56,23 @@ async function checkXPathsInstagram(browser) {
         await messages.click();
       }
       await page.waitForTimeout(3000);
-      await xPathChecker(
+      const response = await xPathChecker(
         page,
         expectedXPaths.xPaths,
         "https://www.instagram.com"
       );
+      console.log("error here====>", response);
+      results = [...results, ...response];
     } else {
-      await xPathChecker(
+      const response = await xPathChecker(
         page,
         expectedXPaths.xPaths,
         "https://www.instagram.com"
       );
+      results = [...results, ...response];
     }
   }
-
+  return results;
   // await browser.close();
 }
 

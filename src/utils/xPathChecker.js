@@ -25,7 +25,9 @@ async function xPathChecker(page, xpathsToCheck, website) {
         );
       }
     } else {
+      await page.waitForTimeout(5000);
       const element = await page.$x(expectedXPaths);
+
       if (element.length === 0) {
         console.log(`XPath ${expectedXPaths} for ${website} has changed.`);
 
