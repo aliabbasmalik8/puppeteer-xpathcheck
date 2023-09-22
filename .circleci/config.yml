@@ -25,6 +25,7 @@ jobs:
             - v1-dependencies-
 
       - run: npm install
+      - run: npm test
       # TODO - get this cached so that you don't have to pull down the binaries each time
 
       - save_cache:
