@@ -26,16 +26,7 @@ jobs:
 
       - run: npm install
       # TODO - get this cached so that you don't have to pull down the binaries each time
-      - run:
-          name: Update
-          working_directory: /
-          command: |
-            sudo apt-get update -y
-      - run:
-          name: Update
-          working_directory: /
-          command: |
-            sudo apt-get upgrade -y
+
       - run:
           name: Install Chrome headless dependencies
           working_directory: /
