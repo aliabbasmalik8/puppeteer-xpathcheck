@@ -34,6 +34,8 @@ async function checkXPathsYoutube(browser) {
   await page.type("input[type='email']", username, { delay: 50 });
 
   let test = await page.evaluate(() => {
+    console.log("=========>wid", window.innerWidth);
+    console.log("=========>hit", window.innerHeight);
     return window.location;
   });
 
