@@ -13,6 +13,9 @@ async function checkXPathsTwitter(browser) {
   ]);
 
   const page = await browser.newPage();
+
+  await page.authenticate({ username: "cmbplwjb", password: "ega3yo93e10a" });
+
   const pageXPaths = xPaths["twitter"];
 
   // Replace with your login credentials

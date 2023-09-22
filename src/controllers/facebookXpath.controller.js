@@ -13,6 +13,8 @@ async function checkXPathsFB(browser) {
   ]);
   const page = await browser.newPage();
 
+  await page.authenticate({ username: "cmbplwjb", password: "ega3yo93e10a" });
+
   // Replace with your login credentials
   const username = "androediot@gmail.com";
   const password = "Helloworld91@";

@@ -8,6 +8,8 @@ async function checkXPathsInstagram(browser) {
   let results = [];
   const page = await browser.newPage();
 
+  await page.authenticate({ username: "cmbplwjb", password: "ega3yo93e10a" });
+
   const username = "monic16032@nickolis.com";
   const password = "Helloworld91@";
   const pageXPaths = xPaths["instagram"];

@@ -12,6 +12,9 @@ async function checkXPathsYoutube(browser) {
   ]);
   console.log("====>> hello world");
   const page = await browser.newPage();
+
+  await page.authenticate({ username: "cmbplwjb", password: "ega3yo93e10a" });
+
   const pageXPaths = xPaths["youtube"];
   // Replace with your login credentials
   const username = "androediot@gmail.com";
