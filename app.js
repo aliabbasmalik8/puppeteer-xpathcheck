@@ -28,12 +28,12 @@ app.use(function (err, req, res, next) {
 
 const runAll = async () => {
   const browser = await createBrowser();
-  // await checkXPathsLinkedIn(browser);
-  // await checkXPathsInstagram(browser);
+  await checkXPathsLinkedIn(browser);
+  await checkXPathsInstagram(browser);
   await checkXPathsYoutube(browser);
-  // await checkXPathsTikTok(browser);
-  // await checkXPathsFB(browser);
-  // await checkXPathsTwitter(browser);
+  await checkXPathsTikTok(browser);
+  await checkXPathsFB(browser);
+  await checkXPathsTwitter(browser);
   await browser.close();
 };
 

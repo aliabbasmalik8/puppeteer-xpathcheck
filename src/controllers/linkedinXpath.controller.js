@@ -1,11 +1,8 @@
-const userAgent = require("user-agents");
-const createBrowser = require("../utils/createBrowser");
 const xPathChecker = require("../utils/xPathChecker");
 const xPaths = require("../data/xPaths.json");
 
 async function checkXPathsLinkedIn(browser) {
   let results = [];
-  // const context = browser.defaultBrowserContext();
   context.overridePermissions("https://www.linkedin.com/", [
     "geolocation",
     "notifications",
@@ -25,23 +22,14 @@ async function checkXPathsLinkedIn(browser) {
     waitUntil: "networkidle0",
   });
 
-  console.debug("HERE===1");
-
-  // await page.waitForNavigation();
-
   await page.waitForTimeout(6000);
-
-  console.debug("HERE===2");
 
   // Fill in and submit the login form
   await page.type("input[name='session_key']", username, { delay: 100 });
   await page.type("input[name='session_password']", password, { delay: 100 });
   await page.click("button[data-id='sign-in-form__submit-btn']");
-  console.log("====>> hello world122");
 
   await page.waitForSelector("div[class='scaffold-layout__sidebar']");
-
-  console.debug("HERE===3");
 
   for (const expectedXPaths of pageXPaths) {
     await page.goto("https://www.linkedin.com/feed");
@@ -55,7 +43,6 @@ async function checkXPathsLinkedIn(browser) {
         "https://www.linkedin.com/"
       );
       await page.click("span[title='Home']");
-      console.debug("HERE===4", response);
 
       results = [...results, ...response];
     } else if (expectedXPaths.tab === "Comments") {
@@ -66,7 +53,6 @@ async function checkXPathsLinkedIn(browser) {
         expectedXPaths.xPaths,
         "https://www.linkedin.com/"
       );
-      console.debug("HERE===5", response);
 
       results = [...results, ...response];
     } else if (expectedXPaths.tab === "Reply") {
@@ -85,7 +71,6 @@ async function checkXPathsLinkedIn(browser) {
         expectedXPaths.xPaths,
         "https://www.linkedin.com/"
       );
-      console.debug("HERE===6", response);
 
       results = [...results, ...response];
     } else if (expectedXPaths.tab === "Message") {
@@ -96,10 +81,8 @@ async function checkXPathsLinkedIn(browser) {
         expectedXPaths.xPaths,
         "https://www.linkedin.com/"
       );
-      console.debug("HERE===7", response);
 
       results = [...results, ...response];
-      //await page.click('svg[class="x1lliihq x1k90msu x2h7rmj x1qfuztq xcza8v6 x1qx5ct2 xw4jnvo"]')
     } else {
       const response = await xPathChecker(
         page,
@@ -107,7 +90,6 @@ async function checkXPathsLinkedIn(browser) {
         "https://www.linkedin.com/"
       );
       results = [...results, ...response];
-      console.debug("HERE===8", response);
     }
   }
   return results;

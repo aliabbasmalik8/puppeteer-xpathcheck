@@ -1,10 +1,7 @@
-const userAgent = require("user-agents");
-const createBrowser = require("../utils/createBrowser");
 const xPathChecker = require("../utils/xPathChecker");
 const xPaths = require("../data/xPaths.json");
 
 async function checkXPathsInstagram(browser) {
-  // const browser = await createBrowser();
   let results = [];
   const page = await browser.newPage();
 
@@ -18,8 +15,6 @@ async function checkXPathsInstagram(browser) {
   await page.goto("https://www.instagram.com/accounts/login", {
     waitUntil: "networkidle0",
   });
-
-  // await page.setUserAgent(userAgent.random().toString());
 
   // Fill in and submit the login form
   await page.type("input[name='username']", username, { delay: 50 });
@@ -39,7 +34,6 @@ async function checkXPathsInstagram(browser) {
 
     if (expectedXPaths.tab === "Comments") {
       const [comments] = await page.$x("//*[starts-with(text(), 'View all')]");
-      console.log("comments", comments);
 
       if (comments) {
         await comments.click();
@@ -63,7 +57,6 @@ async function checkXPathsInstagram(browser) {
         expectedXPaths.xPaths,
         "https://www.instagram.com"
       );
-      console.log("error here====>", response);
       results = [...results, ...response];
     } else {
       const response = await xPathChecker(
@@ -75,7 +68,6 @@ async function checkXPathsInstagram(browser) {
     }
   }
   return results;
-  // await browser.close();
 }
 
 module.exports = checkXPathsInstagram;

@@ -1,11 +1,7 @@
-const userAgent = require("user-agents");
-const createBrowser = require("../utils/createBrowser");
 const xPathChecker = require("../utils/xPathChecker");
 const xPaths = require("../data/xPaths.json");
 
 async function checkXPathsTikTok(browser) {
-  // const browser = await createBrowser();
-
   let results = [];
   const context = browser.defaultBrowserContext();
 
@@ -32,8 +28,6 @@ async function checkXPathsTikTok(browser) {
 
   console.debug("HERE ====> 1");
 
-  // await page.setUserAgent(userAgent.random().toString());
-
   // Fill in and submit the login form
   await page.type("input[name='username']", username, { delay: 50 });
 
@@ -41,10 +35,7 @@ async function checkXPathsTikTok(browser) {
 
   await page.click("button[type='submit']");
 
-  console.debug("HERE ====> 2");
-
   await page.waitForTimeout(8000);
-  // await page.screenshot({ path: "tiktok.png" });
 
   for (const expectedXPaths of pageXPaths) {
     if (expectedXPaths.tab === "Comments") {
@@ -58,7 +49,6 @@ async function checkXPathsTikTok(browser) {
         expectedXPaths.xPaths,
         "https://www.tiktok.com/"
       );
-      console.debug("HERE ====> 3", response);
 
       results = [...results, ...response];
     } else {
@@ -67,13 +57,11 @@ async function checkXPathsTikTok(browser) {
         expectedXPaths.xPaths,
         "https://www.tiktok.com/"
       );
-      console.debug("HERE ====> 3", response);
 
       results = [...results, ...response];
     }
   }
   return results;
-  // await browser.close();
 }
 
 module.exports = checkXPathsTikTok;
