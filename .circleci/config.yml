@@ -12,8 +12,6 @@ jobs:
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
 
-    working_directory: ~/<FOLDER_OF_REPO>
-
     steps:
       - checkout
 
