@@ -44,7 +44,7 @@ async function checkXPathsTikTok(browser) {
   console.debug("HERE ====> 2");
 
   await page.waitForTimeout(8000);
-  await page.screenshot({ path: "tiktok.png" });
+  // await page.screenshot({ path: "tiktok.png" });
 
   for (const expectedXPaths of pageXPaths) {
     if (expectedXPaths.tab === "Comments") {

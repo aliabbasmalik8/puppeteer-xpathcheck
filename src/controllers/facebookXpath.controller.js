@@ -23,7 +23,7 @@ async function checkXPathsFB(browser) {
   // Navigate to the login page
   await page.goto("https://www.facebook.com", { waitUntil: "networkidle0" });
 
-  await page.screenshot({ path: "home.png" });
+  // await page.screenshot({ path: "home.png" });
 
   // await page.setUserAgent(userAgent.random().toString());
 
@@ -32,11 +32,11 @@ async function checkXPathsFB(browser) {
   await page.type("input[name='pass']", password, { delay: 50 });
   await page.click("button[data-testid='royal_login_button']");
   await page.waitForTimeout(3000);
-  await page.screenshot({ path: "home1.png" });
+  // await page.screenshot({ path: "home1.png" });
   // Wait for login to complete (you may need to adjust the selectors and wait time)
   await page.waitForSelector("div[role='navigation']");
 
-  await page.screenshot({ path: "home122222.png" });
+  // await page.screenshot({ path: "home122222.png" });
 
   for (const expectedXPaths of pageXPaths) {
     await page.goto("https://www.facebook.com/");
@@ -48,7 +48,7 @@ async function checkXPathsFB(browser) {
         await reels.click();
       }
 
-      await page.screenshot({ path: "reelks.png" });
+      // await page.screenshot({ path: "reelks.png" });
 
       // await page.waitForSelector("a[href='/reels/create/']");
       // await page.screenshot({ path: "screenshot.png" });
@@ -74,7 +74,7 @@ async function checkXPathsFB(browser) {
       await page.waitForTimeout(7000);
       // await page.waitForNetworkIdle();
 
-      await page.screenshot({ path: "maket.png" });
+      // await page.screenshot({ path: "maket.png" });
 
       const response = await xPathChecker(
         page,
