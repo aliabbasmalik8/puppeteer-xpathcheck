@@ -37,6 +37,8 @@ async function checkXPathsYoutube(browser) {
     return window.location;
   });
 
+  console.log("test-======>1", test);
+
   await page.click("#identifierNext");
 
   await page.waitForNavigation();
@@ -44,9 +46,13 @@ async function checkXPathsYoutube(browser) {
 
   await page.type("input[type='password']", password, { delay: 50 });
 
+  console.log("test-======>2");
+
   await page.click("#passwordNext");
   await page.waitForNavigation();
   await page.waitForTimeout(10000);
+
+  console.log("test-======>3");
 
   for (const expectedXPaths of pageXPaths) {
     await page.goto("https://www.youtube.com/");
