@@ -3,6 +3,7 @@ const xPaths = require("../data/xPaths.json");
 
 async function checkXPathsLinkedIn(browser) {
   let results = [];
+  const context = browser.defaultBrowserContext();
   context.overridePermissions("https://www.linkedin.com/", [
     "geolocation",
     "notifications",
