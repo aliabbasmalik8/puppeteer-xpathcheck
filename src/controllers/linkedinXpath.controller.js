@@ -14,8 +14,9 @@ async function checkXPathsLinkedIn(browser) {
   const delay = (milliseconds) =>
     new Promise((resolve) => setTimeout(resolve, milliseconds));
   // Replace with your login credentials
-  const username = "ali@truenation.ai";
-  const password = "Helloworld91@";
+  const username = process.env.LINKEDIN_LOGIN_EMAIL;
+  const password = process.env.LINKEDIN_LOGIN_PASSWORD;
+
   const pageXPaths = xPaths["linkedIn"];
   // Navigate to the login page
   await page.goto("https://www.linkedin.com/", {

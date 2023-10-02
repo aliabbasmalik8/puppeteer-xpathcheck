@@ -7,8 +7,8 @@ async function checkXPathsInstagram(browser) {
 
   await page.authenticate({ username: "cmbplwjb", password: "ega3yo93e10a" });
 
-  const username = "monic16032@nickolis.com";
-  const password = "Helloworld91@";
+  const username = process.env.INSTAGRAM_LOGIN_EMAIL;
+  const password = process.env.INSTAGRAM_LOGIN_PASSWORD;
   const pageXPaths = xPaths["instagram"];
 
   // Navigate to the login page

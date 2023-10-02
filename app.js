@@ -1,5 +1,6 @@
 const createError = require("http-errors");
 const express = require("express");
+require("dotenv").config();
 const checkXPathsLinkedIn = require("./src/controllers/linkedinXpath.controller");
 const checkXPathsInstagram = require("./src/controllers/instagramXpath.controller");
 const checkXPathsYoutube = require("./src/controllers/youtubeXpath.controller");

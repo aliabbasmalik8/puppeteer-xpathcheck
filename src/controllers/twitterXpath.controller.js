@@ -17,8 +17,8 @@ async function checkXPathsTwitter(browser) {
   const pageXPaths = xPaths["twitter"];
 
   // Replace with your login credentials
-  const username = "AliMali82930864";
-  const password = "Helloworld91@";
+  const username = process.env.TWITTER_LOGIN_USERNAME;
+  const password = process.env.TWITTER_LOGIN_PASSWORD;
 
   // Navigate to the login page
   await page.goto("https://twitter.com/i/flow/login", {

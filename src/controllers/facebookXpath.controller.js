@@ -12,8 +12,9 @@ async function checkXPathsFB(browser) {
   await page.authenticate({ username: "cmbplwjb", password: "ega3yo93e10a" });
 
   // Replace with your login credentials
-  const username = "androediot@gmail.com";
-  const password = "Helloworld91@";
+  const username = process.env.FACEBOOK_LOGIN_EMAIL;
+  const password = process.env.FACEBOOK_LOGIN_PASSWORD;
+
   const pageXPaths = xPaths["facebook"];
 
   // Navigate to the login page

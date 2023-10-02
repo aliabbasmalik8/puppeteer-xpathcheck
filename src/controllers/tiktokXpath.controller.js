@@ -15,8 +15,9 @@ async function checkXPathsTikTok(browser) {
   await page.authenticate({ username: "cmbplwjb", password: "ega3yo93e10a" });
 
   // Replace with your login credentials
-  const username = "ali@truenation.ai";
-  const password = "Helloworld91@";
+  const username = process.env.TIKTOK_LOGIN_EMAIL;
+  const password = process.env.TIKTOK_LOGIN_PASSWORD;
+
   const pageXPaths = xPaths["tiktok"];
 
   // Navigate to the login page

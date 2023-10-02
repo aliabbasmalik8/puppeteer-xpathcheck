@@ -13,10 +13,10 @@ async function checkXPathsYoutube(browser) {
   await page.authenticate({ username: "cmbplwjb", password: "ega3yo93e10a" });
 
   const pageXPaths = xPaths["youtube"];
-  // Replace with your login credentials
-  const username = "androediot@gmail.com";
-  const password = "Helloworld81@";
 
+  // Replace with your login credentials
+  const username = process.env.YOUTUBE_LOGIN_EMAIL;
+  const password = process.env.YOUTUBE_LOGIN_PASSWORD;
   // Navigate to the login page
   await page.goto("https://www.youtube.com/", {
     waitUntil: "networkidle0",
@@ -44,9 +44,6 @@ async function checkXPathsYoutube(browser) {
   let hit = await page.evaluate(() => {
     return window.innerHeight;
   });
-  console.log("test-======>1", test);
-  console.log("test-======>WIDTH", wid);
-  console.log("test-======>HIT", hit);
 
   await page.click("#identifierNext");
 
@@ -55,13 +52,9 @@ async function checkXPathsYoutube(browser) {
 
   await page.type("input[type='password']", password, { delay: 50 });
 
-  console.log("test-======>2");
-
   await page.click("#passwordNext");
   await page.waitForNavigation();
   await page.waitForTimeout(4000);
-
-  console.log("test-======>3");
 
   for (const expectedXPaths of pageXPaths) {
     await page.goto("https://www.youtube.com/");
